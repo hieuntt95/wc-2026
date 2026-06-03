@@ -19,8 +19,8 @@ import {
  */
 @Injectable({ providedIn: 'root' })
 export class FootballApiService {
-  private readonly teamsResource = httpResource<TeamDto[]>(() => '/data/teams.json');
-  private readonly matchesResource = httpResource<MatchDto[]>(() => '/data/matches.json');
+  private readonly teamsResource = httpResource<TeamDto[]>(() => 'data/teams.json');
+  private readonly matchesResource = httpResource<MatchDto[]>(() => 'data/matches.json');
 
   readonly isLoading = computed(
     () => this.teamsResource.isLoading() || this.matchesResource.isLoading(),
