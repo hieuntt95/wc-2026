@@ -1,0 +1,27 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cup" x1="30" y1="14" x2="99" y2="112" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF3A3"/>
+      <stop offset="0.42" stop-color="#FFC533"/>
+      <stop offset="1" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="47" y1="18" x2="72" y2="83" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="shadow" x="4" y="6" width="120" height="120" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#7C2D12" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <path d="M39 19h50l-5 42c-2 17-12 28-20 28S46 78 44 61L39 19z" fill="url(#cup)"/>
+    <path d="M40 23h48l-1.2 10H41.2L40 23z" fill="#FFE082" opacity="0.95"/>
+    <path d="M50 27h16c-2 17-5 32-12 46-5-9-8-25-4-46z" fill="url(#shine)" opacity="0.72"/>
+    <path d="M37.5 25H24c1 21 8 34 22 38l-1.6-13C36.5 47.2 31.5 40 30.2 31.5h8L37.5 25z" fill="#FBBF24"/>
+    <path d="M90.5 25H104c-1 21-8 34-22 38l1.6-13c7.9-2.8 12.9-10 14.2-18.5h-8l.7-6.5z" fill="#FBBF24"/>
+    <path d="M56 86h16v14H56V86z" fill="#EAB308"/>
+    <path d="M43 99h42l6 13H37l6-13z" fill="#F59E0B"/>
+    <path d="M32 111h64v8H32v-8z" fill="#B45309"/>
+    <path d="M49 20h30l-3 6H52l-3-6z" fill="#FFF7AD" opacity="0.75"/>
+  </g>
+</svg>

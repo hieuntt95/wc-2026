@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+/* Dark mode driven by a `.dark` class on <html> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* WC 2026 brand palette — official-inspired orange → pink → purple */
+@theme {
+  --color-wc-orange: #ff7a00;
+  --color-wc-coral: #ff4d6d;
+  --color-wc-pink: #e0218a;
+  --color-wc-purple: #7c3aed;
+  --color-wc-indigo: #4f46e5;
+
+  --color-pitch-50: #f3f8f4;
+  --color-pitch-900: #0b1f14;
+
+  --font-display: "Inter", system-ui, sans-serif;
+}

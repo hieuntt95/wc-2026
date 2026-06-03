@@ -1,0 +1,786 @@
+[
+  {
+    "id": 1,
+    "name": "1A",
+    "shortName": "1A",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 2,
+    "name": "1B",
+    "shortName": "1B",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 3,
+    "name": "1C",
+    "shortName": "1C",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 4,
+    "name": "1D",
+    "shortName": "1D",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 5,
+    "name": "1E",
+    "shortName": "1E",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 6,
+    "name": "1F",
+    "shortName": "1F",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 7,
+    "name": "1G",
+    "shortName": "1G",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 8,
+    "name": "1H",
+    "shortName": "1H",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 9,
+    "name": "1I",
+    "shortName": "1I",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 10,
+    "name": "1J",
+    "shortName": "1J",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 11,
+    "name": "1K",
+    "shortName": "1K",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 12,
+    "name": "1L",
+    "shortName": "1L",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 13,
+    "name": "2A",
+    "shortName": "2A",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 14,
+    "name": "2B",
+    "shortName": "2B",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 15,
+    "name": "2C",
+    "shortName": "2C",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 16,
+    "name": "2D",
+    "shortName": "2D",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 17,
+    "name": "2E",
+    "shortName": "2E",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 18,
+    "name": "2F",
+    "shortName": "2F",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 19,
+    "name": "2G",
+    "shortName": "2G",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 20,
+    "name": "2H",
+    "shortName": "2H",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 21,
+    "name": "2I",
+    "shortName": "2I",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 22,
+    "name": "2J",
+    "shortName": "2J",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 23,
+    "name": "2K",
+    "shortName": "2K",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 24,
+    "name": "2L",
+    "shortName": "2L",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 25,
+    "name": "3A/B/C/D/F",
+    "shortName": "3A/B/C/D/F",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 26,
+    "name": "3A/E/H/I/J",
+    "shortName": "3A/E/H/I/J",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 27,
+    "name": "3B/E/F/I/J",
+    "shortName": "3B/E/F/I/J",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 28,
+    "name": "3C/D/F/G/H",
+    "shortName": "3C/D/F/G/H",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 29,
+    "name": "3C/E/F/H/I",
+    "shortName": "3C/E/F/H/I",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 30,
+    "name": "3D/E/I/J/L",
+    "shortName": "3D/E/I/J/L",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 31,
+    "name": "3E/F/G/I/J",
+    "shortName": "3E/F/G/I/J",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 32,
+    "name": "3E/H/I/J/K",
+    "shortName": "3E/H/I/J/K",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 33,
+    "name": "Algeria",
+    "shortName": "A",
+    "crest": "https://flagcdn.com/w320/dz.png",
+    "group": "J"
+  },
+  {
+    "id": 34,
+    "name": "Argentina",
+    "shortName": "A",
+    "crest": "https://flagcdn.com/w320/ar.png",
+    "group": "J"
+  },
+  {
+    "id": 35,
+    "name": "Australia",
+    "shortName": "A",
+    "crest": "https://flagcdn.com/w320/au.png",
+    "group": "D"
+  },
+  {
+    "id": 36,
+    "name": "Austria",
+    "shortName": "A",
+    "crest": "https://flagcdn.com/w320/at.png",
+    "group": "J"
+  },
+  {
+    "id": 37,
+    "name": "Belgium",
+    "shortName": "B",
+    "crest": "https://flagcdn.com/w320/be.png",
+    "group": "G"
+  },
+  {
+    "id": 38,
+    "name": "Bosnia & Herzegovina",
+    "shortName": "BIH",
+    "crest": "https://flagcdn.com/w320/ba.png",
+    "group": "B"
+  },
+  {
+    "id": 39,
+    "name": "Brazil",
+    "shortName": "B",
+    "crest": "https://flagcdn.com/w320/br.png",
+    "group": "C"
+  },
+  {
+    "id": 40,
+    "name": "Canada",
+    "shortName": "C",
+    "crest": "https://flagcdn.com/w320/ca.png",
+    "group": "B"
+  },
+  {
+    "id": 41,
+    "name": "Cape Verde",
+    "shortName": "CPV",
+    "crest": "https://flagcdn.com/w320/cv.png",
+    "group": "H"
+  },
+  {
+    "id": 42,
+    "name": "Colombia",
+    "shortName": "C",
+    "crest": "https://flagcdn.com/w320/co.png",
+    "group": "K"
+  },
+  {
+    "id": 43,
+    "name": "Croatia",
+    "shortName": "C",
+    "crest": "https://flagcdn.com/w320/hr.png",
+    "group": "L"
+  },
+  {
+    "id": 44,
+    "name": "Curaçao",
+    "shortName": "CUW",
+    "crest": "https://flagcdn.com/w320/cw.png",
+    "group": "E"
+  },
+  {
+    "id": 45,
+    "name": "Czech Republic",
+    "shortName": "CZE",
+    "crest": "https://flagcdn.com/w320/cz.png",
+    "group": "A"
+  },
+  {
+    "id": 46,
+    "name": "DR Congo",
+    "shortName": "COD",
+    "crest": "https://flagcdn.com/w320/cd.png",
+    "group": "K"
+  },
+  {
+    "id": 47,
+    "name": "Ecuador",
+    "shortName": "E",
+    "crest": "https://flagcdn.com/w320/ec.png",
+    "group": "E"
+  },
+  {
+    "id": 48,
+    "name": "Egypt",
+    "shortName": "E",
+    "crest": "https://flagcdn.com/w320/eg.png",
+    "group": "G"
+  },
+  {
+    "id": 49,
+    "name": "England",
+    "shortName": "E",
+    "crest": "https://flagcdn.com/w320/gb-eng.png",
+    "group": "L"
+  },
+  {
+    "id": 50,
+    "name": "France",
+    "shortName": "F",
+    "crest": "https://flagcdn.com/w320/fr.png",
+    "group": "I"
+  },
+  {
+    "id": 51,
+    "name": "Germany",
+    "shortName": "G",
+    "crest": "https://flagcdn.com/w320/de.png",
+    "group": "E"
+  },
+  {
+    "id": 52,
+    "name": "Ghana",
+    "shortName": "G",
+    "crest": "https://flagcdn.com/w320/gh.png",
+    "group": "L"
+  },
+  {
+    "id": 53,
+    "name": "Haiti",
+    "shortName": "H",
+    "crest": "https://flagcdn.com/w320/ht.png",
+    "group": "C"
+  },
+  {
+    "id": 54,
+    "name": "Iran",
+    "shortName": "I",
+    "crest": "https://flagcdn.com/w320/ir.png",
+    "group": "G"
+  },
+  {
+    "id": 55,
+    "name": "Iraq",
+    "shortName": "I",
+    "crest": "https://flagcdn.com/w320/iq.png",
+    "group": "I"
+  },
+  {
+    "id": 56,
+    "name": "Ivory Coast",
+    "shortName": "CIV",
+    "crest": "https://flagcdn.com/w320/ci.png",
+    "group": "E"
+  },
+  {
+    "id": 57,
+    "name": "Japan",
+    "shortName": "J",
+    "crest": "https://flagcdn.com/w320/jp.png",
+    "group": "F"
+  },
+  {
+    "id": 58,
+    "name": "Jordan",
+    "shortName": "J",
+    "crest": "https://flagcdn.com/w320/jo.png",
+    "group": "J"
+  },
+  {
+    "id": 59,
+    "name": "L101",
+    "shortName": "L101",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 60,
+    "name": "L102",
+    "shortName": "L102",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 61,
+    "name": "Mexico",
+    "shortName": "M",
+    "crest": "https://flagcdn.com/w320/mx.png",
+    "group": "A"
+  },
+  {
+    "id": 62,
+    "name": "Morocco",
+    "shortName": "M",
+    "crest": "https://flagcdn.com/w320/ma.png",
+    "group": "C"
+  },
+  {
+    "id": 63,
+    "name": "Netherlands",
+    "shortName": "N",
+    "crest": "https://flagcdn.com/w320/nl.png",
+    "group": "F"
+  },
+  {
+    "id": 64,
+    "name": "New Zealand",
+    "shortName": "NZL",
+    "crest": "https://flagcdn.com/w320/nz.png",
+    "group": "G"
+  },
+  {
+    "id": 65,
+    "name": "Norway",
+    "shortName": "N",
+    "crest": "https://flagcdn.com/w320/no.png",
+    "group": "I"
+  },
+  {
+    "id": 66,
+    "name": "Panama",
+    "shortName": "P",
+    "crest": "https://flagcdn.com/w320/pa.png",
+    "group": "L"
+  },
+  {
+    "id": 67,
+    "name": "Paraguay",
+    "shortName": "P",
+    "crest": "https://flagcdn.com/w320/py.png",
+    "group": "D"
+  },
+  {
+    "id": 68,
+    "name": "Portugal",
+    "shortName": "P",
+    "crest": "https://flagcdn.com/w320/pt.png",
+    "group": "K"
+  },
+  {
+    "id": 69,
+    "name": "Qatar",
+    "shortName": "Q",
+    "crest": "https://flagcdn.com/w320/qa.png",
+    "group": "B"
+  },
+  {
+    "id": 70,
+    "name": "Saudi Arabia",
+    "shortName": "KSA",
+    "crest": "https://flagcdn.com/w320/sa.png",
+    "group": "H"
+  },
+  {
+    "id": 71,
+    "name": "Scotland",
+    "shortName": "S",
+    "crest": "https://flagcdn.com/w320/gb-sct.png",
+    "group": "C"
+  },
+  {
+    "id": 72,
+    "name": "Senegal",
+    "shortName": "S",
+    "crest": "https://flagcdn.com/w320/sn.png",
+    "group": "I"
+  },
+  {
+    "id": 73,
+    "name": "South Africa",
+    "shortName": "RSA",
+    "crest": "https://flagcdn.com/w320/za.png",
+    "group": "A"
+  },
+  {
+    "id": 74,
+    "name": "South Korea",
+    "shortName": "KOR",
+    "crest": "https://flagcdn.com/w320/kr.png",
+    "group": "A"
+  },
+  {
+    "id": 75,
+    "name": "Spain",
+    "shortName": "S",
+    "crest": "https://flagcdn.com/w320/es.png",
+    "group": "H"
+  },
+  {
+    "id": 76,
+    "name": "Sweden",
+    "shortName": "S",
+    "crest": "https://flagcdn.com/w320/se.png",
+    "group": "F"
+  },
+  {
+    "id": 77,
+    "name": "Switzerland",
+    "shortName": "S",
+    "crest": "https://flagcdn.com/w320/ch.png",
+    "group": "B"
+  },
+  {
+    "id": 78,
+    "name": "Tunisia",
+    "shortName": "T",
+    "crest": "https://flagcdn.com/w320/tn.png",
+    "group": "F"
+  },
+  {
+    "id": 79,
+    "name": "Turkey",
+    "shortName": "T",
+    "crest": "https://flagcdn.com/w320/tr.png",
+    "group": "D"
+  },
+  {
+    "id": 80,
+    "name": "Uruguay",
+    "shortName": "U",
+    "crest": "https://flagcdn.com/w320/uy.png",
+    "group": "H"
+  },
+  {
+    "id": 81,
+    "name": "USA",
+    "shortName": "USA",
+    "crest": "https://flagcdn.com/w320/us.png",
+    "group": "D"
+  },
+  {
+    "id": 82,
+    "name": "Uzbekistan",
+    "shortName": "U",
+    "crest": "https://flagcdn.com/w320/uz.png",
+    "group": "K"
+  },
+  {
+    "id": 83,
+    "name": "W100",
+    "shortName": "W100",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 84,
+    "name": "W101",
+    "shortName": "W101",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 85,
+    "name": "W102",
+    "shortName": "W102",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 86,
+    "name": "W73",
+    "shortName": "W73",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 87,
+    "name": "W74",
+    "shortName": "W74",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 88,
+    "name": "W75",
+    "shortName": "W75",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 89,
+    "name": "W76",
+    "shortName": "W76",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 90,
+    "name": "W77",
+    "shortName": "W77",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 91,
+    "name": "W78",
+    "shortName": "W78",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 92,
+    "name": "W79",
+    "shortName": "W79",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 93,
+    "name": "W80",
+    "shortName": "W80",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 94,
+    "name": "W81",
+    "shortName": "W81",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 95,
+    "name": "W82",
+    "shortName": "W82",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 96,
+    "name": "W83",
+    "shortName": "W83",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 97,
+    "name": "W84",
+    "shortName": "W84",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 98,
+    "name": "W85",
+    "shortName": "W85",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 99,
+    "name": "W86",
+    "shortName": "W86",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 100,
+    "name": "W87",
+    "shortName": "W87",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 101,
+    "name": "W88",
+    "shortName": "W88",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 102,
+    "name": "W89",
+    "shortName": "W89",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 103,
+    "name": "W90",
+    "shortName": "W90",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 104,
+    "name": "W91",
+    "shortName": "W91",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 105,
+    "name": "W92",
+    "shortName": "W92",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 106,
+    "name": "W93",
+    "shortName": "W93",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 107,
+    "name": "W94",
+    "shortName": "W94",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 108,
+    "name": "W95",
+    "shortName": "W95",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 109,
+    "name": "W96",
+    "shortName": "W96",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 110,
+    "name": "W97",
+    "shortName": "W97",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 111,
+    "name": "W98",
+    "shortName": "W98",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  },
+  {
+    "id": 112,
+    "name": "W99",
+    "shortName": "W99",
+    "crest": "https://r2.thesportsdb.com/images/media/league/badge/e7er5g1696521789.png",
+    "group": null
+  }
+]
