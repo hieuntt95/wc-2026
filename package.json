@@ -4,7 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:local": "ng serve --configuration local",
     "build": "ng build",
+    "build:local": "ng build --configuration local",
     "sync:data": "node tools/sync-worldcup-data.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
