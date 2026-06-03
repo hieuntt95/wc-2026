@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { SupabaseClientService } from '../../core/services/supabase-client.service';
 
-type SyncStatus = 'idle' | 'syncing' | 'done' | 'error';
+type SyncStatus = 'idle' | 'syncing' | 'upserting' | 'done' | 'error';
 type Stage =
   | 'GROUP_STAGE'
   | 'ROUND_OF_32'
@@ -135,7 +136,8 @@ const SHORT_NAMES = new Map<string, string>([
         <h1 class="text-2xl font-extrabold tracking-tight">Sync dữ liệu WC 2026</h1>
         <p class="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">
           Button này fetch dữ liệu từ openfootball và generate đúng format JSON của app.
-          Browser không thể tự ghi đè file trong project, nên để cập nhật file thật hãy chạy
+          Nếu Supabase đã cấu hình, bạn có thể upsert snapshot này vào database.
+          JSON fallback vẫn có thể cập nhật bằng
           <code class="rounded bg-slate-100 px-1.5 py-0.5 dark:bg-white/10">npm run sync:data</code>.
         </p>
 
@@ -154,9 +156,22 @@ const SHORT_NAMES = new Map<string, string>([
           }
         </button>
 
+        @if (!isSupabaseConfigured) {
+          <p class="mt-3 text-xs text-slate-400">
+            Supabase chưa được cấu hình trong <code>src/environments/environment.ts</code>,
+            nên route này chỉ generate/download JSON.
+          </p>
+        }
+
         @if (status() === 'error') {
           <div class="mt-4 rounded-2xl bg-wc-coral/10 p-4 text-sm font-medium text-wc-coral">
             {{ errorMessage() }}
+          </div>
+        }
+
+        @if (successMessage()) {
+          <div class="mt-4 rounded-2xl bg-emerald-500/10 p-4 text-sm font-medium text-emerald-600">
+            {{ successMessage() }}
           </div>
         }
 
@@ -177,6 +192,20 @@ const SHORT_NAMES = new Map<string, string>([
           </div>
 
           <div class="mt-4 flex flex-col gap-2 sm:flex-row">
+            @if (isSupabaseConfigured) {
+              <button
+                type="button"
+                (click)="upsertToSupabase()"
+                [disabled]="status() === 'upserting'"
+                class="rounded-xl bg-wc-purple px-4 py-2 text-sm font-bold text-white disabled:opacity-60"
+              >
+                @if (status() === 'upserting') {
+                  Đang ghi Supabase...
+                } @else {
+                  Upsert vào Supabase
+                }
+              </button>
+            }
             <button
               type="button"
               (click)="download('teams.json')"
@@ -198,13 +227,18 @@ const SHORT_NAMES = new Map<string, string>([
   `,
 })
 export class SyncData {
+  private readonly supabase = inject(SupabaseClientService);
+
   protected readonly status = signal<SyncStatus>('idle');
   protected readonly errorMessage = signal('');
+  protected readonly successMessage = signal('');
   protected readonly snapshot = signal<Snapshot | null>(null);
+  protected readonly isSupabaseConfigured = this.supabase.isConfigured;
 
   protected async sync(): Promise<void> {
     this.status.set('syncing');
     this.errorMessage.set('');
+    this.successMessage.set('');
 
     try {
       const response = await fetch(SOURCE_URL);
@@ -213,9 +247,70 @@ export class SyncData {
       }
       const source = (await response.json()) as SourceData;
       this.snapshot.set(this.buildSnapshot(source));
+      this.successMessage.set('Đã fetch và tạo snapshot mới.');
       this.status.set('done');
     } catch (error) {
       this.errorMessage.set(error instanceof Error ? error.message : 'Sync failed');
+      this.status.set('error');
+    }
+  }
+
+  protected async upsertToSupabase(): Promise<void> {
+    const data = this.snapshot();
+    const client = this.supabase.client;
+    if (!data || !client) {
+      this.errorMessage.set('Chưa có snapshot hoặc Supabase chưa được cấu hình.');
+      this.status.set('error');
+      return;
+    }
+
+    this.status.set('upserting');
+    this.errorMessage.set('');
+    this.successMessage.set('');
+
+    try {
+      const { error: teamsError } = await client.from('teams').upsert(
+        data.teams.map((team) => ({
+          id: team.id,
+          name: team.name,
+          short_name: team.shortName,
+          crest: team.crest,
+          group: team.group,
+        })),
+        { onConflict: 'id' },
+      );
+      if (teamsError) throw teamsError;
+
+      const { error: matchesError } = await client.from('matches').upsert(
+        data.matches.map((match) => ({
+          id: match.id,
+          utc_date: match.utcDate,
+          status: match.status,
+          stage: match.stage,
+          group: match.group,
+          matchday: match.matchday,
+          home_team_id: match.homeTeamId,
+          away_team_id: match.awayTeamId,
+          home_score: match.score.home,
+          away_score: match.score.away,
+          venue: match.venue ?? null,
+        })),
+        { onConflict: 'id' },
+      );
+      if (matchesError) throw matchesError;
+
+      await client.from('sync_logs').insert({
+        source: data.source,
+        teams_count: data.teams.length,
+        matches_count: data.matches.length,
+      });
+
+      this.successMessage.set(
+        `Đã upsert ${data.teams.length} teams và ${data.matches.length} matches vào Supabase.`,
+      );
+      this.status.set('done');
+    } catch (error) {
+      this.errorMessage.set(error instanceof Error ? error.message : 'Upsert Supabase failed');
       this.status.set('error');
     }
   }

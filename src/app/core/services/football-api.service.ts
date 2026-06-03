@@ -1,5 +1,6 @@
-import { Injectable, computed } from '@angular/core';
-import { httpResource } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, computed, inject, signal } from '@angular/core';
+import { firstValueFrom } from 'rxjs';
 import {
   GroupStandings,
   Match,
@@ -9,26 +10,49 @@ import {
   Team,
   TeamDto,
 } from '../models/football.models';
+import { SupabaseClientService } from './supabase-client.service';
+
+interface SupabaseTeamRow {
+  id: number;
+  name: string;
+  short_name: string;
+  crest: string;
+  group: string | null;
+}
+
+interface SupabaseMatchRow {
+  id: number;
+  utc_date: string;
+  status: MatchDto['status'];
+  stage: MatchDto['stage'];
+  group: string | null;
+  matchday: number;
+  home_team_id: number;
+  away_team_id: number;
+  home_score: number | null;
+  away_score: number | null;
+  venue?: string | null;
+}
 
 /**
- * Pure front-end data source.
+ * Football data facade.
  *
- * Loads static JSON bundled under /public/data. To switch to a live source
- * (e.g. TheSportsDB) later, only the two resource URLs / mappers below need
- * to change — every computed signal downstream stays the same.
+ * Supabase is the primary source when configured. Static JSON remains as a
+ * fallback so the app still works locally and on GitHub Pages without secrets.
  */
 @Injectable({ providedIn: 'root' })
 export class FootballApiService {
-  private readonly teamsResource = httpResource<TeamDto[]>(() => 'data/teams.json');
-  private readonly matchesResource = httpResource<MatchDto[]>(() => 'data/matches.json');
+  private readonly http = inject(HttpClient);
+  private readonly supabase = inject(SupabaseClientService);
 
-  readonly isLoading = computed(
-    () => this.teamsResource.isLoading() || this.matchesResource.isLoading(),
-  );
+  readonly isLoading = signal(true);
+  readonly error = signal<unknown | null>(null);
+  readonly dataSource = signal<'supabase' | 'json'>('json');
 
-  readonly error = computed(() => this.teamsResource.error() ?? this.matchesResource.error());
+  private readonly teamDtos = signal<TeamDto[]>([]);
+  private readonly matchDtos = signal<MatchDto[]>([]);
 
-  readonly teams = computed<Team[]>(() => this.teamsResource.value() ?? []);
+  readonly teams = computed<Team[]>(() => this.teamDtos());
 
   private readonly teamsById = computed<Map<number, Team>>(() => {
     const map = new Map<number, Team>();
@@ -41,7 +65,7 @@ export class FootballApiService {
   /** All matches with their teams resolved, sorted chronologically. */
   readonly matches = computed<Match[]>(() => {
     const byId = this.teamsById();
-    const raw = this.matchesResource.value() ?? [];
+    const raw = this.matchDtos();
     return raw
       .map((m) => this.toMatch(m, byId))
       .filter((m): m is Match => m !== null)
@@ -103,9 +127,65 @@ export class FootballApiService {
       .sort((a, b) => a.group.localeCompare(b.group));
   });
 
-  reload(): void {
-    this.teamsResource.reload();
-    this.matchesResource.reload();
+  constructor() {
+    void this.reload();
+  }
+
+  async reload(): Promise<void> {
+    this.isLoading.set(true);
+    this.error.set(null);
+
+    try {
+      if (this.supabase.isConfigured) {
+        await this.loadFromSupabase();
+        this.dataSource.set('supabase');
+      } else {
+        await this.loadFromJson();
+        this.dataSource.set('json');
+      }
+    } catch (supabaseError) {
+      try {
+        await this.loadFromJson();
+        this.dataSource.set('json');
+        this.error.set(null);
+        console.warn('Supabase load failed, using static JSON fallback.', supabaseError);
+      } catch (jsonError) {
+        this.error.set(jsonError);
+      }
+    } finally {
+      this.isLoading.set(false);
+    }
+  }
+
+  private async loadFromSupabase(): Promise<void> {
+    const client = this.supabase.client;
+    if (!client) {
+      throw new Error('Supabase is not configured.');
+    }
+
+    const [{ data: teams, error: teamsError }, { data: matches, error: matchesError }] =
+      await Promise.all([
+        client.from('teams').select('*').order('id'),
+        client.from('matches').select('*').order('utc_date'),
+      ]);
+
+    if (teamsError) throw teamsError;
+    if (matchesError) throw matchesError;
+
+    this.teamDtos.set((teams ?? []).map((team) => this.fromSupabaseTeam(team as SupabaseTeamRow)));
+    this.matchDtos.set(
+      (matches ?? []).map((match) => this.fromSupabaseMatch(match as SupabaseMatchRow)),
+    );
+  }
+
+  private async loadFromJson(): Promise<void> {
+    const [teams, matches] = await Promise.all([
+      firstValueFrom(this.http.get<TeamDto[]>('data/teams.json')),
+      firstValueFrom(this.http.get<MatchDto[]>('data/matches.json')),
+    ]);
+
+    this.teamDtos.set(teams);
+    this.matchDtos.set(matches);
   }
 
   private toMatch(dto: MatchDto, byId: Map<number, Team>): Match | null {
@@ -124,6 +204,30 @@ export class FootballApiService {
       homeTeam,
       awayTeam,
       score: dto.score,
+    };
+  }
+
+  private fromSupabaseTeam(row: SupabaseTeamRow): TeamDto {
+    return {
+      id: row.id,
+      name: row.name,
+      shortName: row.short_name,
+      crest: row.crest,
+      group: row.group,
+    };
+  }
+
+  private fromSupabaseMatch(row: SupabaseMatchRow): MatchDto {
+    return {
+      id: row.id,
+      utcDate: row.utc_date,
+      status: row.status,
+      stage: row.stage,
+      group: row.group,
+      matchday: row.matchday,
+      homeTeamId: row.home_team_id,
+      awayTeamId: row.away_team_id,
+      score: { home: row.home_score, away: row.away_score },
     };
   }
 
