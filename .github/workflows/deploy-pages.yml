@@ -32,15 +32,22 @@ jobs:
         run: npm ci
 
       - name: Create Supabase environment
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
         run: |
+          test -n "$SUPABASE_URL"
+          test -n "$SUPABASE_ANON_KEY"
           cat > src/environments/environment.ts <<'EOF'
           export const environment = {
             supabase: {
-              url: '${{ secrets.SUPABASE_URL }}',
-              anonKey: '${{ secrets.SUPABASE_ANON_KEY }}',
+              url: '__SUPABASE_URL__',
+              anonKey: '__SUPABASE_ANON_KEY__',
             },
           };
           EOF
+          sed -i "s|__SUPABASE_URL__|$SUPABASE_URL|g" src/environments/environment.ts
+          sed -i "s|__SUPABASE_ANON_KEY__|$SUPABASE_ANON_KEY|g" src/environments/environment.ts
 
       - name: Build Angular app
         run: npm run build -- --base-href /wc-2026/
