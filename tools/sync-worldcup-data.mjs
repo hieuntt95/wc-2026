@@ -130,6 +130,11 @@ function groupKey(group) {
   return group?.replace('Group ', '') ?? null;
 }
 
+function finalScore(match) {
+  const [home, away] = match.score?.ft ?? [];
+  return typeof home === 'number' && typeof away === 'number' ? { home, away } : null;
+}
+
 function toUtcIso(date, timeText) {
   const [, hh, mm, sign, offsetHours] =
     timeText.match(/^(\d{1,2}):(\d{2}) UTC([+-])(\d{1,2})$/) ?? [];
@@ -169,18 +174,21 @@ function buildSnapshot(source) {
   }));
 
   const ids = new Map(teams.map((team) => [team.name, team.id]));
-  const matches = source.matches.map((m, index) => ({
-    id: index + 1,
-    utcDate: toUtcIso(m.date, m.time),
-    status: 'SCHEDULED',
-    stage: stage(m.round),
-    group: groupKey(m.group),
-    matchday: matchday(m.round),
-    homeTeamId: ids.get(m.team1),
-    awayTeamId: ids.get(m.team2),
-    score: { home: null, away: null },
-    venue: m.ground,
-  }));
+  const matches = source.matches.map((m, index) => {
+    const score = finalScore(m);
+    return {
+      id: index + 1,
+      utcDate: toUtcIso(m.date, m.time),
+      status: score ? 'FINISHED' : 'SCHEDULED',
+      stage: stage(m.round),
+      group: groupKey(m.group),
+      matchday: matchday(m.round),
+      homeTeamId: ids.get(m.team1),
+      awayTeamId: ids.get(m.team2),
+      score: score ?? { home: null, away: null },
+      venue: m.ground,
+    };
+  });
 
   return { teams, matches };
 }
@@ -204,6 +212,7 @@ async function main() {
         teams: snapshot.teams.length,
         groupTeams: snapshot.teams.filter((team) => team.group !== null).length,
         matches: snapshot.matches.length,
+        finishedMatches: snapshot.matches.filter((match) => match.status === 'FINISHED').length,
         updated: new Date().toISOString(),
       },
       null,

@@ -17,6 +17,9 @@ interface SourceMatch {
   time: string;
   team1: string;
   team2: string;
+  score?: {
+    ft?: [number, number];
+  };
   group?: string;
   ground?: string;
 }
@@ -37,13 +40,13 @@ interface TeamSnapshot {
 interface MatchSnapshot {
   id: number;
   utcDate: string;
-  status: 'SCHEDULED';
+  status: 'SCHEDULED' | 'FINISHED';
   stage: Stage;
   group: string | null;
   matchday: number;
   homeTeamId: number | undefined;
   awayTeamId: number | undefined;
-  score: { home: null; away: null };
+  score: { home: number | null; away: number | null };
   venue?: string;
 }
 
@@ -176,7 +179,7 @@ const SHORT_NAMES = new Map<string, string>([
         }
 
         @if (snapshot(); as data) {
-          <div class="mt-5 grid gap-3 sm:grid-cols-3">
+          <div class="mt-5 grid gap-3 sm:grid-cols-4">
             <div class="rounded-2xl bg-slate-100 p-4 dark:bg-white/5">
               <p class="text-xs font-semibold text-slate-400">Nguồn</p>
               <p class="mt-1 font-bold">{{ data.source }}</p>
@@ -188,6 +191,12 @@ const SHORT_NAMES = new Map<string, string>([
             <div class="rounded-2xl bg-slate-100 p-4 dark:bg-white/5">
               <p class="text-xs font-semibold text-slate-400">Matches</p>
               <p class="mt-1 font-bold">{{ data.matches.length }}</p>
+            </div>
+            <div class="rounded-2xl bg-emerald-500/10 p-4">
+              <p class="text-xs font-semibold text-emerald-600">Đã có kết quả</p>
+              <p class="mt-1 font-bold text-emerald-700 dark:text-emerald-300">
+                {{ finishedMatchesCount(data) }}
+              </p>
             </div>
           </div>
 
@@ -353,20 +362,27 @@ export class SyncData {
     }));
     const ids = new Map(teams.map((team) => [team.name, team.id]));
 
-    const matches = source.matches.map((m, index) => ({
-      id: index + 1,
-      utcDate: this.toUtcIso(m.date, m.time),
-      status: 'SCHEDULED' as const,
-      stage: this.stage(m.round),
-      group: this.groupKey(m.group),
-      matchday: this.matchday(m.round),
-      homeTeamId: ids.get(m.team1),
-      awayTeamId: ids.get(m.team2),
-      score: { home: null, away: null },
-      venue: m.ground,
-    }));
+    const matches = source.matches.map((m, index) => {
+      const score = this.finalScore(m);
+      return {
+        id: index + 1,
+        utcDate: this.toUtcIso(m.date, m.time),
+        status: score ? ('FINISHED' as const) : ('SCHEDULED' as const),
+        stage: this.stage(m.round),
+        group: this.groupKey(m.group),
+        matchday: this.matchday(m.round),
+        homeTeamId: ids.get(m.team1),
+        awayTeamId: ids.get(m.team2),
+        score: score ?? { home: null, away: null },
+        venue: m.ground,
+      };
+    });
 
     return { teams, matches, source: source.name, updated: new Date().toISOString() };
+  }
+
+  protected finishedMatchesCount(snapshot: Snapshot): number {
+    return snapshot.matches.filter((match) => match.status === 'FINISHED').length;
   }
 
   private normalizeTeamName(name: string): string {
@@ -424,6 +440,11 @@ export class SyncData {
 
   private groupKey(group: string | undefined): string | null {
     return group?.replace('Group ', '') ?? null;
+  }
+
+  private finalScore(match: SourceMatch): { home: number; away: number } | null {
+    const [home, away] = match.score?.ft ?? [];
+    return typeof home === 'number' && typeof away === 'number' ? { home, away } : null;
   }
 
   private toUtcIso(date: string, timeText: string): string {

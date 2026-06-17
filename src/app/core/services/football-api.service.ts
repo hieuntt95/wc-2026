@@ -83,7 +83,7 @@ export class FootballApiService {
   /** Only finished matches, most recent first. */
   readonly results = computed<MatchDay[]>(() => {
     const finished = this.matches()
-      .filter((m) => m.status === 'FINISHED')
+      .filter((m) => this.hasFinalScore(m))
       .sort((a, b) => b.utcDate.localeCompare(a.utcDate));
     return this.groupByDay(finished);
   });
@@ -91,7 +91,7 @@ export class FootballApiService {
   /** Standings per group, computed from finished matches only. */
   readonly standings = computed<GroupStandings[]>(() => {
     const teams = this.teams();
-    const finished = this.matches().filter((m) => m.status === 'FINISHED');
+    const finished = this.matches().filter((m) => this.hasFinalScore(m));
 
     const byGroup = new Map<string, Map<number, Standing>>();
     for (const team of teams) {
@@ -197,7 +197,7 @@ export class FootballApiService {
     return {
       id: dto.id,
       utcDate: dto.utcDate,
-      status: dto.status,
+      status: this.normalizedStatus(dto),
       stage: dto.stage,
       group: dto.group,
       matchday: dto.matchday,
@@ -249,6 +249,18 @@ export class FootballApiService {
     const month = `${d.getMonth() + 1}`.padStart(2, '0');
     const day = `${d.getDate()}`.padStart(2, '0');
     return `${year}-${month}-${day}`;
+  }
+
+  private hasFinalScore(match: Match): boolean {
+    return (
+      match.status === 'FINISHED' ||
+      (match.score.home !== null && match.score.away !== null)
+    );
+  }
+
+  private normalizedStatus(match: MatchDto): MatchDto['status'] {
+    const hasScore = match.score.home !== null && match.score.away !== null;
+    return hasScore && match.status === 'SCHEDULED' ? 'FINISHED' : match.status;
   }
 
   private emptyStanding(team: Team): Standing {
