@@ -11,6 +11,13 @@ type Stage =
   | 'THIRD_PLACE'
   | 'FINAL';
 
+interface SourceGoal {
+  name: string;
+  minute: string;
+  penalty?: boolean;
+  owngoal?: boolean;
+}
+
 interface SourceMatch {
   round: string;
   date: string;
@@ -20,6 +27,8 @@ interface SourceMatch {
   score?: {
     ft?: [number, number];
   };
+  goals1?: SourceGoal[];
+  goals2?: SourceGoal[];
   group?: string;
   ground?: string;
 }
@@ -47,7 +56,15 @@ interface MatchSnapshot {
   homeTeamId: number | undefined;
   awayTeamId: number | undefined;
   score: { home: number | null; away: number | null };
+  goals: { home: GoalSnapshot[]; away: GoalSnapshot[] };
   venue?: string;
+}
+
+interface GoalSnapshot {
+  name: string;
+  minute: string;
+  penalty?: boolean;
+  ownGoal?: boolean;
 }
 
 interface Snapshot {
@@ -302,6 +319,8 @@ export class SyncData {
           away_team_id: match.awayTeamId,
           home_score: match.score.home,
           away_score: match.score.away,
+          home_goals: match.goals.home,
+          away_goals: match.goals.away,
           venue: match.venue ?? null,
         })),
         { onConflict: 'id' },
@@ -374,6 +393,10 @@ export class SyncData {
         homeTeamId: ids.get(m.team1),
         awayTeamId: ids.get(m.team2),
         score: score ?? { home: null, away: null },
+        goals: {
+          home: this.goals(m.goals1),
+          away: this.goals(m.goals2),
+        },
         venue: m.ground,
       };
     });
@@ -445,6 +468,15 @@ export class SyncData {
   private finalScore(match: SourceMatch): { home: number; away: number } | null {
     const [home, away] = match.score?.ft ?? [];
     return typeof home === 'number' && typeof away === 'number' ? { home, away } : null;
+  }
+
+  private goals(goals: SourceGoal[] | undefined): GoalSnapshot[] {
+    return (goals ?? []).map((goal) => ({
+      name: goal.name,
+      minute: goal.minute,
+      ...(goal.penalty ? { penalty: true } : {}),
+      ...(goal.owngoal ? { ownGoal: true } : {}),
+    }));
   }
 
   private toUtcIso(date: string, timeText: string): string {

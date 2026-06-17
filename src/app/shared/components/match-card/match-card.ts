@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
-import { LIVE_STATUSES, Match, Stage } from '../../../core/models/football.models';
+import { GoalDto, LIVE_STATUSES, Match, Stage } from '../../../core/models/football.models';
 import { LocalTimePipe } from '../../pipes/local-time.pipe';
 import { MatchStatusPipe } from '../../pipes/match-status.pipe';
 
@@ -83,6 +83,49 @@ import { MatchStatusPipe } from '../../pipes/match-status.pipe';
           />
         </div>
       </div>
+
+      @if (hasGoals()) {
+        <div
+          class="mt-3 grid grid-cols-[1fr_auto_1fr] gap-2 border-t border-slate-100 pt-3
+                 text-[11px] leading-5 text-slate-500 dark:border-white/10 dark:text-slate-400"
+        >
+          <div class="space-y-1">
+            @for (goal of match().goals.home; track goal.name + goal.minute) {
+              <div class="flex items-start gap-1.5">
+                <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-wc-pink"></span>
+                <span>
+                  <span class="font-semibold text-slate-700 dark:text-slate-200">
+                    {{ goal.name }}
+                  </span>
+                  <span class="tabular-nums"> {{ minuteLabel(goal.minute) }}</span>
+                  @if (goalNote(goal); as note) {
+                    <span class="text-slate-400"> · {{ note }}</span>
+                  }
+                </span>
+              </div>
+            }
+          </div>
+
+          <div aria-hidden="true"></div>
+
+          <div class="space-y-1 text-right">
+            @for (goal of match().goals.away; track goal.name + goal.minute) {
+              <div class="flex items-start justify-end gap-1.5">
+                <span>
+                  @if (goalNote(goal); as note) {
+                    <span class="text-slate-400">{{ note }} · </span>
+                  }
+                  <span class="tabular-nums">{{ minuteLabel(goal.minute) }} </span>
+                  <span class="font-semibold text-slate-700 dark:text-slate-200">
+                    {{ goal.name }}
+                  </span>
+                </span>
+                <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-wc-purple"></span>
+              </div>
+            }
+          </div>
+        </div>
+      }
     </article>
   `,
 })
@@ -96,7 +139,22 @@ export class MatchCard {
     return home !== null && away !== null;
   });
 
+  readonly hasGoals = computed(() => {
+    const { home, away } = this.match().goals;
+    return home.length > 0 || away.length > 0;
+  });
+
   readonly stageLabel = computed(() => STAGE_LABELS[this.match().stage]);
+
+  protected minuteLabel(minute: string): string {
+    return `${minute}'`;
+  }
+
+  protected goalNote(goal: GoalDto): string {
+    if (goal.ownGoal) return 'phản lưới';
+    if (goal.penalty) return 'pen.';
+    return '';
+  }
 }
 
 const STAGE_LABELS: Record<Stage, string> = {

@@ -135,6 +135,15 @@ function finalScore(match) {
   return typeof home === 'number' && typeof away === 'number' ? { home, away } : null;
 }
 
+function goals(goals) {
+  return (goals ?? []).map((goal) => ({
+    name: goal.name,
+    minute: goal.minute,
+    ...(goal.penalty ? { penalty: true } : {}),
+    ...(goal.owngoal ? { ownGoal: true } : {}),
+  }));
+}
+
 function toUtcIso(date, timeText) {
   const [, hh, mm, sign, offsetHours] =
     timeText.match(/^(\d{1,2}):(\d{2}) UTC([+-])(\d{1,2})$/) ?? [];
@@ -186,6 +195,10 @@ function buildSnapshot(source) {
       homeTeamId: ids.get(m.team1),
       awayTeamId: ids.get(m.team2),
       score: score ?? { home: null, away: null },
+      goals: {
+        home: goals(m.goals1),
+        away: goals(m.goals2),
+      },
       venue: m.ground,
     };
   });

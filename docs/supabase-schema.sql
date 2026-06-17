@@ -20,8 +20,13 @@ create table if not exists matches (
   away_team_id int references teams(id),
   home_score int,
   away_score int,
+  home_goals jsonb not null default '[]'::jsonb,
+  away_goals jsonb not null default '[]'::jsonb,
   venue text
 );
+
+alter table matches add column if not exists home_goals jsonb not null default '[]'::jsonb;
+alter table matches add column if not exists away_goals jsonb not null default '[]'::jsonb;
 
 create table if not exists sync_logs (
   id bigint generated always as identity primary key,

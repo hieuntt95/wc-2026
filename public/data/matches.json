@@ -12,6 +12,19 @@
       "home": 2,
       "away": 0
     },
+    "goals": {
+      "home": [
+        {
+          "name": "Julián Quiñones",
+          "minute": "9"
+        },
+        {
+          "name": "Raúl Jiménez",
+          "minute": "67"
+        }
+      ],
+      "away": []
+    },
     "venue": "Mexico City"
   },
   {
@@ -26,6 +39,24 @@
     "score": {
       "home": 2,
       "away": 1
+    },
+    "goals": {
+      "home": [
+        {
+          "name": "Hwang In-Beom",
+          "minute": "67"
+        },
+        {
+          "name": "Oh Hyeon-Gyu",
+          "minute": "80"
+        }
+      ],
+      "away": [
+        {
+          "name": "Ladislav Krejcí",
+          "minute": "59"
+        }
+      ]
     },
     "venue": "Guadalajara (Zapopan)"
   },
@@ -42,6 +73,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Atlanta"
   },
   {
@@ -56,6 +91,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Guadalajara (Zapopan)"
   },
@@ -72,6 +111,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Mexico City"
   },
   {
@@ -86,6 +129,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Monterrey (Guadalupe)"
   },
@@ -102,6 +149,20 @@
       "home": 1,
       "away": 1
     },
+    "goals": {
+      "home": [
+        {
+          "name": "Cyle Larin",
+          "minute": "78"
+        }
+      ],
+      "away": [
+        {
+          "name": "Jovo Lukić",
+          "minute": "21"
+        }
+      ]
+    },
     "venue": "Toronto"
   },
   {
@@ -116,6 +177,21 @@
     "score": {
       "home": 1,
       "away": 1
+    },
+    "goals": {
+      "home": [
+        {
+          "name": "Boualem Khoukhi",
+          "minute": "90+4"
+        }
+      ],
+      "away": [
+        {
+          "name": "Breel Embolo",
+          "minute": "17",
+          "penalty": true
+        }
+      ]
     },
     "venue": "San Francisco Bay Area (Santa Clara)"
   },
@@ -132,6 +208,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Los Angeles (Inglewood)"
   },
   {
@@ -146,6 +226,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Vancouver"
   },
@@ -162,6 +246,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Vancouver"
   },
   {
@@ -176,6 +264,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Seattle"
   },
@@ -192,6 +284,20 @@
       "home": 1,
       "away": 1
     },
+    "goals": {
+      "home": [
+        {
+          "name": "Vinícius Júnior",
+          "minute": "32"
+        }
+      ],
+      "away": [
+        {
+          "name": "Ismael Saibari",
+          "minute": "21"
+        }
+      ]
+    },
     "venue": "New York/New Jersey (East Rutherford)"
   },
   {
@@ -206,6 +312,15 @@
     "score": {
       "home": 0,
       "away": 1
+    },
+    "goals": {
+      "home": [],
+      "away": [
+        {
+          "name": "John McGinn",
+          "minute": "28"
+        }
+      ]
     },
     "venue": "Boston (Foxborough)"
   },
@@ -222,6 +337,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Boston (Foxborough)"
   },
   {
@@ -236,6 +355,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Philadelphia"
   },
@@ -252,6 +375,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Miami (Miami Gardens)"
   },
   {
@@ -266,6 +393,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Atlanta"
   },
@@ -282,6 +413,33 @@
       "home": 4,
       "away": 1
     },
+    "goals": {
+      "home": [
+        {
+          "name": "Damian Bobadilla",
+          "minute": "7",
+          "ownGoal": true
+        },
+        {
+          "name": "Folarin Balogun",
+          "minute": "31"
+        },
+        {
+          "name": "Folarin Balogun",
+          "minute": "45+5"
+        },
+        {
+          "name": "Giovanni Reyna",
+          "minute": "90+8"
+        }
+      ],
+      "away": [
+        {
+          "name": "Mauricio",
+          "minute": "73"
+        }
+      ]
+    },
     "venue": "Los Angeles (Inglewood)"
   },
   {
@@ -296,6 +454,19 @@
     "score": {
       "home": 2,
       "away": 0
+    },
+    "goals": {
+      "home": [
+        {
+          "name": "Nestory Irankunda",
+          "minute": "27"
+        },
+        {
+          "name": "Connor Metcalfe",
+          "minute": "75"
+        }
+      ],
+      "away": []
     },
     "venue": "Vancouver"
   },
@@ -312,6 +483,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Seattle"
   },
   {
@@ -326,6 +501,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "San Francisco Bay Area (Santa Clara)"
   },
@@ -342,6 +521,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Los Angeles (Inglewood)"
   },
   {
@@ -356,6 +539,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "San Francisco Bay Area (Santa Clara)"
   },
@@ -372,6 +559,45 @@
       "home": 7,
       "away": 1
     },
+    "goals": {
+      "home": [
+        {
+          "name": "Felix Nmecha",
+          "minute": "6"
+        },
+        {
+          "name": "Nico Schlotterbeck",
+          "minute": "38"
+        },
+        {
+          "name": "Kai Havertz",
+          "minute": "45+5",
+          "penalty": true
+        },
+        {
+          "name": "Kai Havertz",
+          "minute": "88"
+        },
+        {
+          "name": "Jamal Musiala",
+          "minute": "47"
+        },
+        {
+          "name": "Nathaniel Brown",
+          "minute": "68"
+        },
+        {
+          "name": "Deniz Undav",
+          "minute": "78"
+        }
+      ],
+      "away": [
+        {
+          "name": "Livano Comenencia",
+          "minute": "21"
+        }
+      ]
+    },
     "venue": "Houston"
   },
   {
@@ -386,6 +612,15 @@
     "score": {
       "home": 1,
       "away": 0
+    },
+    "goals": {
+      "home": [
+        {
+          "name": "Amad Diallo",
+          "minute": "90"
+        }
+      ],
+      "away": []
     },
     "venue": "Philadelphia"
   },
@@ -402,6 +637,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Toronto"
   },
   {
@@ -416,6 +655,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Kansas City"
   },
@@ -432,6 +675,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Philadelphia"
   },
   {
@@ -446,6 +693,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "New York/New Jersey (East Rutherford)"
   },
@@ -462,6 +713,28 @@
       "home": 2,
       "away": 2
     },
+    "goals": {
+      "home": [
+        {
+          "name": "Virgil van Dijk",
+          "minute": "51"
+        },
+        {
+          "name": "Crysencio Summerville",
+          "minute": "64"
+        }
+      ],
+      "away": [
+        {
+          "name": "Keito Nakamura",
+          "minute": "57"
+        },
+        {
+          "name": "Daichi Kamada",
+          "minute": "88"
+        }
+      ]
+    },
     "venue": "Dallas (Arlington)"
   },
   {
@@ -476,6 +749,36 @@
     "score": {
       "home": 5,
       "away": 1
+    },
+    "goals": {
+      "home": [
+        {
+          "name": "Yasin Ayari",
+          "minute": "7"
+        },
+        {
+          "name": "Alexander Isak",
+          "minute": "30"
+        },
+        {
+          "name": "Viktor Gyökeres",
+          "minute": "59"
+        },
+        {
+          "name": "Mattias Svanberg",
+          "minute": "84"
+        },
+        {
+          "name": "Yasin Ayari",
+          "minute": "90+6"
+        }
+      ],
+      "away": [
+        {
+          "name": "Omar Rekik",
+          "minute": "43"
+        }
+      ]
     },
     "venue": "Monterrey (Guadalupe)"
   },
@@ -492,6 +795,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Houston"
   },
   {
@@ -506,6 +813,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Monterrey (Guadalupe)"
   },
@@ -522,6 +833,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Dallas (Arlington)"
   },
   {
@@ -536,6 +851,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Kansas City"
   },
@@ -552,6 +871,21 @@
       "home": 1,
       "away": 1
     },
+    "goals": {
+      "home": [
+        {
+          "name": "Mohamed Hany",
+          "minute": "66",
+          "ownGoal": true
+        }
+      ],
+      "away": [
+        {
+          "name": "Emam Ashour",
+          "minute": "19"
+        }
+      ]
+    },
     "venue": "Seattle"
   },
   {
@@ -566,6 +900,28 @@
     "score": {
       "home": 2,
       "away": 2
+    },
+    "goals": {
+      "home": [
+        {
+          "name": "Ramin Rezaeian",
+          "minute": "32"
+        },
+        {
+          "name": "Mohammad Mohebbi",
+          "minute": "64"
+        }
+      ],
+      "away": [
+        {
+          "name": "Elijah Just",
+          "minute": "7"
+        },
+        {
+          "name": "Elijah Just",
+          "minute": "54"
+        }
+      ]
     },
     "venue": "Los Angeles (Inglewood)"
   },
@@ -582,6 +938,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Los Angeles (Inglewood)"
   },
   {
@@ -596,6 +956,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Vancouver"
   },
@@ -612,6 +976,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Seattle"
   },
   {
@@ -626,6 +994,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Vancouver"
   },
@@ -642,6 +1014,10 @@
       "home": 0,
       "away": 0
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Atlanta"
   },
   {
@@ -656,6 +1032,20 @@
     "score": {
       "home": 1,
       "away": 1
+    },
+    "goals": {
+      "home": [
+        {
+          "name": "Abdulelah Al-Amri",
+          "minute": "41"
+        }
+      ],
+      "away": [
+        {
+          "name": "Maxi Araújo",
+          "minute": "80"
+        }
+      ]
     },
     "venue": "Miami (Miami Gardens)"
   },
@@ -672,6 +1062,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Atlanta"
   },
   {
@@ -686,6 +1080,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Miami (Miami Gardens)"
   },
@@ -702,6 +1100,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Houston"
   },
   {
@@ -717,35 +1119,88 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Guadalajara (Zapopan)"
   },
   {
     "id": 49,
     "utcDate": "2026-06-16T19:00:00.000Z",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "stage": "GROUP_STAGE",
     "group": "I",
     "matchday": 6,
     "homeTeamId": 50,
     "awayTeamId": 72,
     "score": {
-      "home": null,
-      "away": null
+      "home": 3,
+      "away": 1
+    },
+    "goals": {
+      "home": [
+        {
+          "name": "Kylian Mbappé",
+          "minute": "66"
+        },
+        {
+          "name": "Bradley Barcola",
+          "minute": "82"
+        },
+        {
+          "name": "Kylian Mbappé",
+          "minute": "90+6"
+        }
+      ],
+      "away": [
+        {
+          "name": "Ibrahim Mbaye",
+          "minute": "90+5"
+        }
+      ]
     },
     "venue": "New York/New Jersey (East Rutherford)"
   },
   {
     "id": 50,
     "utcDate": "2026-06-16T22:00:00.000Z",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "stage": "GROUP_STAGE",
     "group": "I",
     "matchday": 6,
     "homeTeamId": 55,
     "awayTeamId": 65,
     "score": {
-      "home": null,
-      "away": null
+      "home": 1,
+      "away": 4
+    },
+    "goals": {
+      "home": [
+        {
+          "name": "Aymen Hussein",
+          "minute": "39"
+        }
+      ],
+      "away": [
+        {
+          "name": "Erling Haaland",
+          "minute": "29"
+        },
+        {
+          "name": "Erling Haaland",
+          "minute": "43"
+        },
+        {
+          "name": "Leo Østigard",
+          "minute": "76"
+        },
+        {
+          "name": "Aymen Hussein",
+          "minute": "90+6",
+          "ownGoal": true
+        }
+      ]
     },
     "venue": "Boston (Foxborough)"
   },
@@ -762,6 +1217,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Philadelphia"
   },
   {
@@ -776,6 +1235,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "New York/New Jersey (East Rutherford)"
   },
@@ -792,6 +1255,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Boston (Foxborough)"
   },
   {
@@ -807,20 +1274,41 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Toronto"
   },
   {
     "id": 55,
     "utcDate": "2026-06-17T01:00:00.000Z",
-    "status": "SCHEDULED",
+    "status": "FINISHED",
     "stage": "GROUP_STAGE",
     "group": "J",
     "matchday": 6,
     "homeTeamId": 34,
     "awayTeamId": 33,
     "score": {
-      "home": null,
-      "away": null
+      "home": 3,
+      "away": 0
+    },
+    "goals": {
+      "home": [
+        {
+          "name": "Lionel Messi",
+          "minute": "17"
+        },
+        {
+          "name": "Lionel Messi",
+          "minute": "60"
+        },
+        {
+          "name": "Lionel Messi",
+          "minute": "76"
+        }
+      ],
+      "away": []
     },
     "venue": "Kansas City"
   },
@@ -837,6 +1325,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "San Francisco Bay Area (Santa Clara)"
   },
   {
@@ -851,6 +1343,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Dallas (Arlington)"
   },
@@ -867,6 +1363,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "San Francisco Bay Area (Santa Clara)"
   },
   {
@@ -881,6 +1381,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Kansas City"
   },
@@ -897,6 +1401,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Dallas (Arlington)"
   },
   {
@@ -911,6 +1419,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Houston"
   },
@@ -927,6 +1439,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Mexico City"
   },
   {
@@ -941,6 +1457,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Houston"
   },
@@ -957,6 +1477,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Guadalajara (Zapopan)"
   },
   {
@@ -971,6 +1495,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Miami (Miami Gardens)"
   },
@@ -987,6 +1515,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Atlanta"
   },
   {
@@ -1001,6 +1533,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Dallas (Arlington)"
   },
@@ -1017,6 +1553,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Toronto"
   },
   {
@@ -1031,6 +1571,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Boston (Foxborough)"
   },
@@ -1047,6 +1591,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Toronto"
   },
   {
@@ -1061,6 +1609,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "New York/New Jersey (East Rutherford)"
   },
@@ -1077,6 +1629,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Philadelphia"
   },
   {
@@ -1091,6 +1647,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Los Angeles (Inglewood)"
   },
@@ -1107,6 +1667,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Boston (Foxborough)"
   },
   {
@@ -1121,6 +1685,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Monterrey (Guadalupe)"
   },
@@ -1137,6 +1705,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Houston"
   },
   {
@@ -1151,6 +1723,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "New York/New Jersey (East Rutherford)"
   },
@@ -1167,6 +1743,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Dallas (Arlington)"
   },
   {
@@ -1181,6 +1761,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Mexico City"
   },
@@ -1197,6 +1781,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Atlanta"
   },
   {
@@ -1211,6 +1799,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "San Francisco Bay Area (Santa Clara)"
   },
@@ -1227,6 +1819,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Seattle"
   },
   {
@@ -1241,6 +1837,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Toronto"
   },
@@ -1257,6 +1857,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Los Angeles (Inglewood)"
   },
   {
@@ -1271,6 +1875,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Vancouver"
   },
@@ -1287,6 +1895,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Miami (Miami Gardens)"
   },
   {
@@ -1301,6 +1913,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Kansas City"
   },
@@ -1317,6 +1933,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Dallas (Arlington)"
   },
   {
@@ -1331,6 +1951,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Philadelphia"
   },
@@ -1347,6 +1971,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Houston"
   },
   {
@@ -1361,6 +1989,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "New York/New Jersey (East Rutherford)"
   },
@@ -1377,6 +2009,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Mexico City"
   },
   {
@@ -1391,6 +2027,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Dallas (Arlington)"
   },
@@ -1407,6 +2047,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Seattle"
   },
   {
@@ -1421,6 +2065,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Atlanta"
   },
@@ -1437,6 +2085,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Vancouver"
   },
   {
@@ -1451,6 +2103,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Boston (Foxborough)"
   },
@@ -1467,6 +2123,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Los Angeles (Inglewood)"
   },
   {
@@ -1481,6 +2141,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Miami (Miami Gardens)"
   },
@@ -1497,6 +2161,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Kansas City"
   },
   {
@@ -1511,6 +2179,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "Dallas (Arlington)"
   },
@@ -1527,6 +2199,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Atlanta"
   },
   {
@@ -1542,6 +2218,10 @@
       "home": null,
       "away": null
     },
+    "goals": {
+      "home": [],
+      "away": []
+    },
     "venue": "Miami (Miami Gardens)"
   },
   {
@@ -1556,6 +2236,10 @@
     "score": {
       "home": null,
       "away": null
+    },
+    "goals": {
+      "home": [],
+      "away": []
     },
     "venue": "New York/New Jersey (East Rutherford)"
   }

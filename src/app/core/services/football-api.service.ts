@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import {
+  GoalDto,
   GroupStandings,
   Match,
   MatchDay,
@@ -31,6 +32,8 @@ interface SupabaseMatchRow {
   away_team_id: number;
   home_score: number | null;
   away_score: number | null;
+  home_goals?: GoalDto[] | null;
+  away_goals?: GoalDto[] | null;
   venue?: string | null;
 }
 
@@ -204,6 +207,7 @@ export class FootballApiService {
       homeTeam,
       awayTeam,
       score: dto.score,
+      goals: dto.goals ?? { home: [], away: [] },
     };
   }
 
@@ -228,6 +232,10 @@ export class FootballApiService {
       homeTeamId: row.home_team_id,
       awayTeamId: row.away_team_id,
       score: { home: row.home_score, away: row.away_score },
+      goals: {
+        home: row.home_goals ?? [],
+        away: row.away_goals ?? [],
+      },
     };
   }
 

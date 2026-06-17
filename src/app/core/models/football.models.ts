@@ -18,6 +18,13 @@ export interface TeamDto {
   group: string | null;
 }
 
+export interface GoalDto {
+  name: string;
+  minute: string;
+  penalty?: boolean;
+  ownGoal?: boolean;
+}
+
 export interface MatchDto {
   id: number;
   utcDate: string;
@@ -28,6 +35,7 @@ export interface MatchDto {
   homeTeamId: number;
   awayTeamId: number;
   score: { home: number | null; away: number | null };
+  goals?: { home: GoalDto[]; away: GoalDto[] };
 }
 
 /** Domain models used across the app (teams resolved on matches). */
@@ -49,6 +57,7 @@ export interface Match {
   homeTeam: Team;
   awayTeam: Team;
   score: { home: number | null; away: number | null };
+  goals: { home: GoalDto[]; away: GoalDto[] };
 }
 
 export interface Standing {
