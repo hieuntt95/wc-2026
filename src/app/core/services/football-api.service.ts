@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
+import { environment } from '../../../environments/environment';
 import {
-  GoalDto,
   GroupStandings,
   Match,
   MatchDay,
@@ -11,46 +11,24 @@ import {
   Team,
   TeamDto,
 } from '../models/football.models';
-import { SupabaseClientService } from './supabase-client.service';
-
-interface SupabaseTeamRow {
-  id: number;
-  name: string;
-  short_name: string;
-  crest: string;
-  group: string | null;
-}
-
-interface SupabaseMatchRow {
-  id: number;
-  utc_date: string;
-  status: MatchDto['status'];
-  stage: MatchDto['stage'];
-  group: string | null;
-  matchday: number;
-  home_team_id: number;
-  away_team_id: number;
-  home_score: number | null;
-  away_score: number | null;
-  home_goals?: GoalDto[] | null;
-  away_goals?: GoalDto[] | null;
-  venue?: string | null;
-}
+import {
+  OpenFootballData,
+  mapOpenFootballSource,
+} from './openfootball.mapper';
 
 /**
  * Football data facade.
  *
- * Supabase is the primary source when configured. Static JSON remains as a
- * fallback so the app still works locally and on GitHub Pages without secrets.
+ * Fetches live data from openfootball on each reload. Static JSON under
+ * /public/data remains as a fallback when the remote source is unavailable.
  */
 @Injectable({ providedIn: 'root' })
 export class FootballApiService {
   private readonly http = inject(HttpClient);
-  private readonly supabase = inject(SupabaseClientService);
 
   readonly isLoading = signal(true);
   readonly error = signal<unknown | null>(null);
-  readonly dataSource = signal<'supabase' | 'json'>('json');
+  readonly dataSource = signal<'api' | 'json'>('json');
 
   private readonly teamDtos = signal<TeamDto[]>([]);
   private readonly matchDtos = signal<MatchDto[]>([]);
@@ -139,19 +117,14 @@ export class FootballApiService {
     this.error.set(null);
 
     try {
-      if (this.supabase.isConfigured) {
-        await this.loadFromSupabase();
-        this.dataSource.set('supabase');
-      } else {
-        await this.loadFromJson();
-        this.dataSource.set('json');
-      }
-    } catch (supabaseError) {
+      await this.loadFromApi();
+      this.dataSource.set('api');
+    } catch (apiError) {
       try {
         await this.loadFromJson();
         this.dataSource.set('json');
         this.error.set(null);
-        console.warn('Supabase load failed, using static JSON fallback.', supabaseError);
+        console.warn('OpenFootball fetch failed, using static JSON fallback.', apiError);
       } catch (jsonError) {
         this.error.set(jsonError);
       }
@@ -160,25 +133,13 @@ export class FootballApiService {
     }
   }
 
-  private async loadFromSupabase(): Promise<void> {
-    const client = this.supabase.client;
-    if (!client) {
-      throw new Error('Supabase is not configured.');
-    }
-
-    const [{ data: teams, error: teamsError }, { data: matches, error: matchesError }] =
-      await Promise.all([
-        client.from('teams').select('*').order('id'),
-        client.from('matches').select('*').order('utc_date'),
-      ]);
-
-    if (teamsError) throw teamsError;
-    if (matchesError) throw matchesError;
-
-    this.teamDtos.set((teams ?? []).map((team) => this.fromSupabaseTeam(team as SupabaseTeamRow)));
-    this.matchDtos.set(
-      (matches ?? []).map((match) => this.fromSupabaseMatch(match as SupabaseMatchRow)),
+  private async loadFromApi(): Promise<void> {
+    const source = await firstValueFrom(
+      this.http.get<OpenFootballData>(environment.openFootball.sourceUrl),
     );
+    const snapshot = mapOpenFootballSource(source);
+    this.teamDtos.set(snapshot.teams);
+    this.matchDtos.set(snapshot.matches);
   }
 
   private async loadFromJson(): Promise<void> {
@@ -208,34 +169,6 @@ export class FootballApiService {
       awayTeam,
       score: dto.score,
       goals: dto.goals ?? { home: [], away: [] },
-    };
-  }
-
-  private fromSupabaseTeam(row: SupabaseTeamRow): TeamDto {
-    return {
-      id: row.id,
-      name: row.name,
-      shortName: row.short_name,
-      crest: row.crest,
-      group: row.group,
-    };
-  }
-
-  private fromSupabaseMatch(row: SupabaseMatchRow): MatchDto {
-    return {
-      id: row.id,
-      utcDate: row.utc_date,
-      status: row.status,
-      stage: row.stage,
-      group: row.group,
-      matchday: row.matchday,
-      homeTeamId: row.home_team_id,
-      awayTeamId: row.away_team_id,
-      score: { home: row.home_score, away: row.away_score },
-      goals: {
-        home: row.home_goals ?? [],
-        away: row.away_goals ?? [],
-      },
     };
   }
 
