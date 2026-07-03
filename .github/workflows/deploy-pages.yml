@@ -25,22 +25,23 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
 
       - name: Install dependencies
         run: npm ci
 
       - name: Build Angular app
-        run: npm run build -- --base-href /wc-2026/
+        run: npm run build -- --configuration production --base-href /wc-2026/
 
-      - name: Create SPA fallback
-        run: cp dist/wc-2026/browser/index.html dist/wc-2026/browser/404.html
+      - name: Prepare GitHub Pages artifact
+        run: |
+          test -f dist/wc-2026/browser/index.html
+          cp dist/wc-2026/browser/index.html dist/wc-2026/browser/404.html
+          touch dist/wc-2026/browser/.nojekyll
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -57,4 +58,8 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
+        with:
+          timeout: 600000
+          error_count: 10
+          reporting_interval: 5000
